@@ -1,7 +1,7 @@
 const {Router} = require("express")
 const {Anotaciones} = require("../db/db")
 const router = Router()
-
+//---------------------------------------------crear------------------------------------------------------
 router.post("/", async (req,res)=>{
     try {
         const {nombre} = req.body
@@ -14,6 +14,7 @@ router.post("/", async (req,res)=>{
     }
   
 })
+//----------------------------------------------obtener-------------------------------------------------------
 router.get("/", async (req,res)=>{
     try {
         const todosLasAnotaciones= await Anotaciones.findAll()
@@ -22,6 +23,7 @@ router.get("/", async (req,res)=>{
         return res.status(404).send("no se pudo traer los usuarios")
     }
 })
+//---------------------------------------------modificar o actualizar--------------------------------------------------------
 router.put("/:anotacionId", async(req,res)=>{
     try {
         
@@ -37,8 +39,7 @@ router.put("/:anotacionId", async(req,res)=>{
     }
 
 })
-//cambios realizados en git
-//cambios por segunda vez
+//-------------------------------------eliminar-----------------------------------------------------------------
 router.delete("/:anotacionId", async (req,res)=>{
     try {
         const {anotacionId} = req.params
