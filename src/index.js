@@ -1,6 +1,6 @@
 const express = require("express");
-const {sequelize} = require("./db")
-const clienteRouter = require("./routes/clientes")
+const {sequelize} = require("./db/db")
+const anotacionesRouter = require("./routes/anotaciones")
 const app = express();
 
 
@@ -13,7 +13,7 @@ app.set("PORT",3001)
 app.get('/', (req,res)=>{res.json("hola mundo")})
 
 
-app.use('/api/clientes',clienteRouter)
+app.use('/api/anotaciones',anotacionesRouter)
 
 
 //arrancamos nuestro servidor
